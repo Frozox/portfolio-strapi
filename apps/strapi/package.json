@@ -1,0 +1,32 @@
+{
+  "name": "@portfolio/strapi",
+  "private": true,
+  "version": "0.1.0",
+  "description": "Portfolio Strapi backend",
+  "scripts": {
+    "dev": "strapi develop",
+    "start": "strapi start",
+    "build": "strapi build",
+    "strapi": "strapi"
+  },
+  "dependencies": {
+    "@portfolio/libs": "^0.1.0",
+    "@strapi/plugin-i18n": "4.13.5",
+    "@strapi/plugin-users-permissions": "4.13.5",
+    "@strapi/strapi": "4.13.5",
+    "pg": "8.8.0",
+    "strapi-plugin-schemas-to-ts": "^1.1.10",
+    "typescript": "^5.2.2"
+  },
+  "author": {
+    "name": "A Strapi developer"
+  },
+  "strapi": {
+    "uuid": "3fcbe560-4dc1-4694-9abc-0f932793b52b"
+  },
+  "engines": {
+    "node": ">=16.0.0 <=20.x.x",
+    "npm": ">=6.0.0"
+  },
+  "license": "MIT"
+}

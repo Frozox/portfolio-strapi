@@ -1,0 +1,22 @@
+{
+  "name": "@portfolio/astro",
+  "type": "module",
+  "version": "0.1.0",
+  "description": "Portfolio Astro frontend",
+  "scripts": {
+    "dev": "astro dev",
+    "start": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview",
+    "astro": "astro"
+  },
+  "dependencies": {
+    "@astrojs/mdx": "^1.0.3",
+    "@astrojs/rss": "^3.0.0",
+    "@astrojs/sitemap": "^3.0.0",
+    "@portfolio/libs": "^0.1.0",
+    "@portfolio/strapi": "^0.1.0",
+    "astro": "^3.0.12",
+    "marked": "^9.0.0"
+  }
+}
