@@ -1,11 +1,26 @@
 install:
-	pnpm install
-
-dev:
-	pnpm run -r --parallel dev
-
-start:
-	pnpm run -r --parallel start
-
+	@pnpm install
+	
 build:
-	pnpm run -r --parallel build
+	@pnpm run build
+
+watch:
+	@pnpm run watch
+
+up@docker:
+	@docker compose up -d
+
+down@docker:
+	@docker compose down
+
+up:
+	@make up@docker
+	@pnpm run dev
+
+up@back:
+	@make up@docker
+	@pnpm --filter @portfolio/strapi dev
+
+up@front:
+	@make up@docker
+	@pnpm --filter @portfolio/astro dev

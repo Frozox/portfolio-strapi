@@ -1,0 +1,22 @@
+# Use postgres/example user/password credentials
+version: '3.8'
+
+services:
+  db:
+    image: postgres
+    environment:
+      POSTGRES_USER: portfolio
+      POSTGRES_PASSWORD: portfolio
+      POSTGRES_DB: portfolio
+    ports:
+      - '5432:5432'
+    volumes:
+      - pgdata-portfolio:/var/lib/postgresql/data
+
+  adminer:
+    image: adminer
+    ports:
+      - '8080:8080'
+
+volumes:
+  pgdata-portfolio:
