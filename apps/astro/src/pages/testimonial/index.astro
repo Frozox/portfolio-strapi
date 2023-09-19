@@ -2,13 +2,12 @@
 import BaseHead from '../../components/BaseHead.astro';
 import Header from '../../components/Header.astro';
 import Footer from '../../components/Footer.astro';
-import { SITE_TITLE, SITE_DESCRIPTION } from '../../consts';
+import { SITE_TITLE, SITE_DESCRIPTION, API_CLIENT } from '../../consts';
 import FormattedDate from '../../components/FormattedDate.astro';
-import type { Testimonial } from '@portfolio/strapi/src/api/testimonial/content-types/testimonial/testimonial';
-import { apiClient } from '@portfolio/libs/src/utils/api';
 import { marked } from 'marked';
+import type { OverwriteTestimonial } from '@portfolio/libs/src/interfaces/entities/testimonial';
 
-const testimonials: Testimonial[] = await apiClient.getTestimonials({ queries: { populate: "*" }}).then((res) => res.data);
+const testimonials: OverwriteTestimonial[] = await API_CLIENT.getTestimonials({ queries: { populate: "*" }}).then((res) => res.data);
 ---
 
 <!doctype html>
@@ -94,7 +93,7 @@ const testimonials: Testimonial[] = await apiClient.getTestimonials({ queries: {
 						testimonials.map((testimonial) => (
 							<li>
 								<a href={`/testimonial/${testimonial.id}/`}>
-									<img width={720} height={360} src={`http://localhost:1337${testimonial.attributes.avatar.data.attributes.url}`} alt="" />
+									<img width={100} src={`${import.meta.env.STRAPI_BASE_URL}${testimonial.attributes.avatar.data.attributes.url}`} alt="" />
 									<h4 class="title">{testimonial.attributes.username}</h4>
 									<p class="date">
 										<FormattedDate date={new Date(testimonial.attributes.postedAt)} />

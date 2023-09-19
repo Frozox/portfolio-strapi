@@ -5,8 +5,15 @@ import type { OverwriteMedia } from "../strapi/media.js";
 export type OverwriteTestimonial = Overwrite<
   Testimonial,
   {
-    attributes: {
-      avatar: { data: OverwriteMedia };
-    };
+    attributes: Overwrite<
+      Testimonial["attributes"],
+      {
+        createdAt: string;
+        updatedAt: string;
+        publishedAt?: string;
+        avatar: { data: OverwriteMedia };
+        postedAt: string;
+      }
+    >;
   }
 >;
